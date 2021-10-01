@@ -1,31 +1,9 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { Button, makeStyles, Typography, Box } from "@material-ui/core";
+import { Button, Typography, Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
-// Styling for header 
-const useStyles = makeStyles({
-  buttonEnd: {
-    marginRight: "5%",
-  },
-  button: {
-    marginRight: "7%",
-  },
-  buttonText: {
-    fontWeight: 800,
-    color: "#2B3856",
-    fontSize: '1.2rem'
-  },
-  titleText: {
-    fontWeight: 800,
-    color: "#2B3856",
-    fontSize: '2rem'
-  },
-  toolMargin: {
-      marginBottom: "2%"
-  }
-});
+import { useStyles } from "./componentStyles/HeaderNavStyle";
 
 
 export default function Header() {

@@ -1,22 +1,9 @@
 import React from "react";
 import { InputAdornment, TextField } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
+import { useStyle } from "./componentStyles/AddTODOStyle";
 import { IconButton } from "@material-ui/core";
 import Add from "@material-ui/icons/AddBoxOutlined";
 
-// Styling for input field and label text
-const useStyle = makeStyles({
-  textField: {
-    margin: "2rem",
-    marginLeft: "calc(3.5rem + 2vw)",
-    marginRight: "calc(3.5rem + 2vw)",
-  },
-
-  labelStyle: {
-    fontSize: "calc(1rem + 0.2vw)",
-    fontWeight: 600,
-  },
-});
 
 // Returns input field components with button
 export default function AddTODO(props) {
