@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, ThemeProvider } from "@material-ui/core";
+import { BrowserRouter as Router } from "react-router-dom";
+import Main from "./components/Main";
 
+// Creating theme for MaterialUI components and adjusting default settings
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#2B3856",
+    },
+    secondary: {
+      main: "#D6D6D7",
+    },
+  },
+  typography: {
+    fontFamily: "Montserrat",
+    h5: {
+      fontWeight: 700,
+    },
+  },
+});
+
+// Providing Theme and Router to app tree
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Main />
+      </Router>
+    </ThemeProvider>
   );
 }
 
