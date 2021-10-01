@@ -102,7 +102,7 @@ export default function Main() {
   return (
     <Switch>
       <ListProvider value={activeList}>
-        <Route path="/" exact>
+        <Route path="/cureTask" exact>
           <Home
             handleAdd={() => {
               handleAdd(textEvent);
