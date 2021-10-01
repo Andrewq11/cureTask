@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@material-ui/core";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import Main from "./components/Main";
 
 // Creating theme for MaterialUI components and adjusting default settings

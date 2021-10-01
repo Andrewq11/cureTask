@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import Home from "../screens/Home";
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import { HashRouter as Switch, Route } from "react-router-dom";
 import History from "../screens/History";
 import { ListProvider } from "../ListContext";
 import Chart from "../screens/Chart";
@@ -102,7 +102,7 @@ export default function Main() {
   return (
     <Switch>
       <ListProvider value={activeList}>
-        <Route path="/cureTask" exact>
+        <Route path="/" exact>
           <Home
             handleAdd={() => {
               handleAdd(textEvent);

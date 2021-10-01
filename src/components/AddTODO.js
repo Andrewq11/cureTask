@@ -13,7 +13,7 @@ const useStyle = makeStyles({
   },
 
   labelStyle: {
-    fontSize: "1.1vw",
+    fontSize: "calc(1rem + 0.2vw)",
     fontWeight: 600,
   },
 });

@@ -43,7 +43,7 @@ export default function Header() {
           </Box>
           <Button className={classes.button} disableRipple>
             <Link
-              to="/cureTask"
+              to="/"
               className={classes.buttonText}
               style={{ textDecoration: "none" }}
             >
