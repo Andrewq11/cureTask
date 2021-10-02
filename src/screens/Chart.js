@@ -46,8 +46,11 @@ export default function Chart() {
       },
     ];
 
+    // Legend for chart
     chart.legend = new am4charts.Legend();
+    chart.legend.align = 'center'
 
+    // Disposing of chart to save resources on component unmount
     return () => {
       chart.dispose();
     };

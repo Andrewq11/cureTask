@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ToDoItem from "./ToDoItem";
 import { makeStyles } from "@material-ui/core";
 import ListContext from "../ListContext";
-import Check from "@material-ui/icons/CheckBoxOutlined"
+import Check from "@material-ui/icons/CheckBoxOutlined";
 
 // Styling for list of tasks on home page
 const useStyle = makeStyles({
@@ -18,6 +18,7 @@ export default function ToDoMapHome(props) {
   // Retrieving context from parent component (Main.js)
   const { active, setActive, childUpdate, setChildUpdate } =
     useContext(ListContext);
+
 
   // Adding task to completed list of tasks in local storage
   // Setting state of active to re-render home page without task
@@ -36,6 +37,7 @@ export default function ToDoMapHome(props) {
     setChildUpdate(!childUpdate);
   }
 
+
   // Adding task to deleted task list and updating state of active for re-render
   function deleteHome(index) {
     let deletedJson = JSON.parse(localStorage.getItem("deletedTasks"));
@@ -52,6 +54,7 @@ export default function ToDoMapHome(props) {
     setChildUpdate(!childUpdate);
   }
 
+  
   // Returning list of active tasks
   return (
     <ul className={classes.list}>
@@ -59,7 +62,7 @@ export default function ToDoMapHome(props) {
         <ToDoItem
           key={index}
           todo={item.todo}
-          check={<Check/>}
+          check={<Check />}
           delete={() => {
             deleteHome(index);
           }}

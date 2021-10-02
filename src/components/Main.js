@@ -7,10 +7,6 @@ import { ListProvider } from "../ListContext";
 import Chart from "../screens/Chart";
 
 export default function Main() {
-  // useState for user input and input label
-  const [textEvent, setTextEvent] = useState("");
-  const [labelText, setLabelText] = useState("");
-
   // useState for task lists and notifying of child component updates
   const [active, setActive] = useState([]);
   const [childUpdate, setChildUpdate] = useState(false);
@@ -33,12 +29,6 @@ export default function Main() {
     renderActiveList();
     deletedItems.current = renderDeletedList();
     completedItems.current = renderCompletedList();
-
-    if (active.length === 0) {
-      setLabelText("Add your first task!");
-    } else {
-      setLabelText("Add another task!");
-    }
   }, [childUpdate, active.length]);
 
 
@@ -71,47 +61,12 @@ export default function Main() {
     return deletedJson;
   }
 
-
-  // Adds event to active tasks list and re-renders tasks for display
-  function handleAdd(textEvent) {
-    // Checking for empty input or just spaces
-    if (!textEvent.replace(/\s/g, "").length) {
-      setLabelText("Please enter a valid task*");
-      setTextEvent("");
-
-      // Handles adding of tasks to local storage and re-rendering of display
-      // Retrieves local storage, appends new task, sets local storage, updates state
-    } else if (textEvent) {
-      let json = JSON.parse(localStorage.getItem("tasks"));
-      if (json === null) {
-        json = [];
-      }
-      let task = {
-        todo: textEvent,
-      };
-      json.push(task);
-      localStorage.setItem("tasks", JSON.stringify(json));
-      renderActiveList();
-
-      setTextEvent("");
-      setLabelText("Add another task!");
-    }
-  }
-
   // Context passed for child components
   return (
     <Switch>
       <ListProvider value={activeList}>
         <Route path="/" exact>
           <Home
-            handleAdd={() => {
-              handleAdd(textEvent);
-            }}
-            textEvent={textEvent}
-            onChange={(e) => {
-              setTextEvent(e.target.value);
-            }}
-            labelText={labelText}
             data={active}
             activeLength={active.length}
           />
