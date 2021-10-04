@@ -19,7 +19,6 @@ export default function Home(props) {
   // Retrieving context from parent for render update and active list length
   const { childUpdate, setChildUpdate, active } = useContext(ListContext);
 
-
   // Updating label text every time childUpdate changes (every add or delete)
   useEffect(() => {
     if (active.length === 0) {
@@ -29,7 +28,6 @@ export default function Home(props) {
     }
   }, [childUpdate, active.length]);
 
-
   // Adds event to active tasks list and re-renders tasks for display
   function handleAdd(textEvent) {
     // Checking for empty input or just spaces
@@ -37,8 +35,8 @@ export default function Home(props) {
       setLabelText("Please enter a valid task*");
       setTextEvent("");
 
-    // Handles adding of tasks to local storage and re-rendering of display
-    // Retrieves local storage, appends new task, sets local storage, updates state
+      // Handles adding of tasks to local storage and re-rendering of display
+      // Retrieves local storage, appends new task, sets local storage, updates state
     } else if (textEvent) {
       let json = JSON.parse(localStorage.getItem("tasks"));
       if (json === null) {
@@ -63,7 +61,7 @@ export default function Home(props) {
         <div className={classes.mainDiv}>
           <AddTODO
             handleAdd={() => {
-              handleAdd(textEvent)
+              handleAdd(textEvent);
             }}
             textEvent={textEvent}
             onChange={(e) => {
@@ -72,11 +70,14 @@ export default function Home(props) {
             labelText={labelText}
           />
           <ToDoMapHome items={props.data} />
+          <div className={classes.countDiv}>
+            <Typography className={classes.countText}>
+              How many things to do: {props.activeLength}
+            </Typography>
+            <div className={classes.countDivPlace}></div>
+          </div>
         </div>
       </div>
-      <Typography className={classes.countText}>
-        How many things to do: {props.activeLength}
-      </Typography>
     </Container>
   );
 }
