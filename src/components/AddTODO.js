@@ -9,6 +9,15 @@ import Add from "@material-ui/icons/AddBoxOutlined";
 export default function AddTODO(props) {
   const classes = useStyle();
 
+  let iconSize = null;
+
+  if (window.innerWidth < 430) {
+    iconSize = 'small';
+  } else {
+    iconSize = 'medium';
+  }
+
+
   return (
     <TextField
       value={props.textEvent}
@@ -20,7 +29,7 @@ export default function AddTODO(props) {
         endAdornment: (
           <InputAdornment position="start">
             <IconButton
-              size="medium"
+              size={iconSize}
               color="primary"
               onClick={props.handleAdd}
               style={{ backgroundColor: "rgba(43, 56, 86, 0.1)" }}

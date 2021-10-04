@@ -10,6 +10,12 @@ const useStyle = makeStyles({
     marginLeft: "1rem",
     marginRight: "3.5rem",
   },
+
+  "@media (max-width: 40rem)": {
+    list: {
+      alignSelf: 'center'
+    },
+  },
 });
 
 export default function ToDoMapHome(props) {

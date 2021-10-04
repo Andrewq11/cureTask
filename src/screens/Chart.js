@@ -15,22 +15,37 @@ export default function Chart() {
 
   // Initializing variable for assignment to JSX below
   let chartActive = null;
+  let chartSize = null;
+  let pieLabels = null;
+  let tickShow = null;
+
+  if (window.innerWidth < 430) {
+    tickShow = true;
+    pieLabels = "";
+    chartSize = '1.6vh';
+  } else {
+    tickShow = false;
+    pieLabels = "{value.percent.formatNumber('#.0')}%";
+    chartSize = '4vh';
+  }
 
   // Handling chart generation and disposal
   useEffect(() => {
     let chart = am4core.create("chartdiv", am4charts.PieChart);
     chart.fontFamily = "Montserrat";
-    chart.minWidth = "50px"
+    chart.minWidth = '500px'
 
     // Styling for chart
     let title = chart.titles.create();
     title.text = "Completed Tasks vs. Deleted Tasks";
     title.fontWeight = 500;
-    title.fontSize = "4vh";
-    title.align = "center";
+    title.fontSize = chartSize;
+    title.textAlign= 'center'
     title.marginTop = '10rem';
     
     let series = chart.series.push(new am4charts.PieSeries());
+    series.ticks.template.disabled = tickShow;
+    series.labels.template.text = pieLabels;
     series.dataFields.value = "count";
     series.dataFields.category = "TaskType";
 

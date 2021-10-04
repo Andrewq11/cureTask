@@ -12,4 +12,18 @@ export const useStyle = makeStyles({
     fontSize: "calc(1rem + 0.2vw)",
     fontWeight: 600,
   },
+
+  "@media (max-width: 40rem)": {
+    textField: {
+      marginTop: "2rem",
+      marginBottom: "0.5rem",
+      marginLeft: "8vw",
+      marginRight: "8vw",
+    },
+
+    labelStyle: {
+      fontSize: "2.5vw",
+      fontWeight: 600,
+    },
+  },
 });

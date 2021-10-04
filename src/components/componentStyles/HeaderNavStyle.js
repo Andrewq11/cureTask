@@ -21,4 +21,26 @@ export const useStyles = makeStyles({
   toolMargin: {
     marginBottom: "2%",
   },
+
+  '@media (max-width: 40rem)': {
+    button: {
+      marginRight: "2%"
+    },
+    titleText: {
+      fontWeight: 800,
+      color: "#2B3856",
+      fontSize: "1rem",
+      textAlign: 'center'
+    },
+
+    buttonText: {
+      fontWeight: 800,
+      color: "#2B3856",
+      fontSize: "0.8rem",
+    },
+
+    buttonEnd: {
+      marginRight: "1%",
+    },
+  }
 });

@@ -43,4 +43,38 @@ export const useStyles = makeStyles({
     fontSize: "1vw",
     color: "#2B3856",
   },
+
+  '@media (max-width: 40rem)': {
+    button: {
+      marginRight: "2%"
+    },
+    titleText: {
+      fontWeight: 800,
+      color: "#2B3856",
+      fontSize: "1rem",
+      textAlign: 'center'
+    },
+
+    buttonText: {
+      fontWeight: 800,
+      color: "#2B3856",
+      fontSize: "0.8rem",
+    },
+
+    buttonEnd: {
+      marginRight: "1%",
+    },
+
+    countDivPlace: {
+      marginRight: '0.6rem',
+      width: "1rem",
+      height: "1rem",
+    },
+  
+    countText: {
+      fontWeight: 600,
+      fontSize: "0.5rem",
+      color: "#2B3856",
+    },
+  }
 });

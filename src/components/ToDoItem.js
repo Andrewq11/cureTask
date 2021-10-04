@@ -7,6 +7,11 @@ import Delete from "@material-ui/icons/DeleteOutline";
 
 export default function ToDoItem(props) {
   const classes = useStyle();
+  let iconSize = null;
+
+  if (window.innerWidth < 430) {
+    iconSize = 'small';
+  }
 
   // Return todo task card
   return (
@@ -18,6 +23,7 @@ export default function ToDoItem(props) {
       <IconButton
         className={classes.checkIcon}
         onClick={props.delete}
+        size={iconSize}
       >
         <Delete />
       </IconButton>
