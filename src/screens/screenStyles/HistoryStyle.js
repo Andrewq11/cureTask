@@ -28,7 +28,7 @@ export const useStyles = makeStyles({
 
   mainText: {
     fontWeight: 700,
-    fontSize: "1.25vw",
+    fontSize: "1.2rem",
     color: "#2B3856",
     margin: "1rem",
   },

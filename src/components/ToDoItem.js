@@ -7,6 +7,8 @@ import Delete from "@material-ui/icons/DeleteOutline";
 
 export default function ToDoItem(props) {
   const classes = useStyle();
+
+  let homeItemSize = props.homeSize
   let iconSize = null;
 
   if (window.innerWidth < 430) {
@@ -15,7 +17,7 @@ export default function ToDoItem(props) {
 
   // Return todo task card
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} style={{width: homeItemSize}}>
       <Typography className={classes.toDoText} noWrap>
         {props.todo}
       </Typography>

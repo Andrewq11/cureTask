@@ -13,7 +13,7 @@ const useStyle = makeStyles({
 
   "@media (max-width: 40rem)": {
     list: {
-      alignSelf: 'center'
+      alignSelf: "center",
     },
   },
 });
@@ -24,7 +24,7 @@ export default function ToDoMapHome(props) {
   // Retrieving context from parent component (Main.js)
   const { active, setActive, childUpdate, setChildUpdate } =
     useContext(ListContext);
-
+  let itemSize = null;
 
   // Adding task to completed list of tasks in local storage
   // Setting state of active to re-render home page without task
@@ -43,7 +43,6 @@ export default function ToDoMapHome(props) {
     setChildUpdate(!childUpdate);
   }
 
-
   // Adding task to deleted task list and updating state of active for re-render
   function deleteHome(index) {
     let deletedJson = JSON.parse(localStorage.getItem("deletedTasks"));
@@ -60,12 +59,16 @@ export default function ToDoMapHome(props) {
     setChildUpdate(!childUpdate);
   }
 
-  
+  if (window.innerWidth < 430) {
+    itemSize = "38vw";
+  }
+
   // Returning list of active tasks
   return (
     <ul className={classes.list}>
       {props.items.map((item, index) => (
         <ToDoItem
+          homeSize={itemSize}
           key={index}
           todo={item.todo}
           check={<Check />}
